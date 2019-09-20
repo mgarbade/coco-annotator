@@ -18,7 +18,7 @@ export default {
     return {
       icon: "fa-map-marker",
       name: "Keypoints",
-      cursor: "cell"
+      cursor: "cell",
     };
   },
   methods: {
@@ -27,6 +27,9 @@ export default {
     },
     onMouseDown(event) {
       this.$parent.currentAnnotation.addKeypoint(event.point);
+    },
+    skipKeypoint() {
+      this.$parent.currentAnnotation.skipKeypoint();
     }
   },
   computed: {

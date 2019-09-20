@@ -93,7 +93,6 @@ export default {
             if (!this.$refs.polygon.isDisabled) this.activeTool = "Polygon";
           }
         },
-        
         {
           default: ["w"],
           name: "Magic Wand Tool",
@@ -155,6 +154,12 @@ export default {
           default: ["["],
           name: "Increase Radius",
           function: this.$refs.brush.increaseRadius
+        },
+        {
+          title: "Set Keypoint as NOT_VISIBLE",
+          default: ["0"],
+          name: "Increase Radius",
+          function: this.$refs.keypoint.skipKeypoint
         },
         {
           default: ["]"],

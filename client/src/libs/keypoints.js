@@ -69,6 +69,11 @@ export class Keypoints extends paper.Group {
     keypoint.path.bringToFront();
   }
 
+  skipKeypoint() {
+    console.log("bling bling")
+    this.addKeypoint(new paper.Point(0, 0), 0);
+  }
+
   deleteKeypoint(keypoint) {
     let indexLabel = keypoint.indexLabel;
     if (this._labelled.hasOwnProperty(indexLabel)) {
