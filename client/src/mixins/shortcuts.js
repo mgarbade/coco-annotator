@@ -1,4 +1,5 @@
 import { mapMutations } from "vuex";
+import paper from "paper";
 
 export default {
   data() {
@@ -51,9 +52,7 @@ export default {
                 );
                 this.currentAnnotation.tagRecomputeCounter++;
                 this.currentAnnotation.currentKeypoint = null;
-              } else {
-                this.currentAnnotation.deleteAnnotation();
-              }
+              } 
             }
           }
         },
@@ -156,9 +155,15 @@ export default {
           function: this.$refs.brush.increaseRadius
         },
         {
-          title: "Set Keypoint as NOT_VISIBLE",
           default: ["0"],
-          name: "Increase Radius",
+          name: "Skip non visible keypoint",
+          function: () => {
+            this.currentAnnotation.addKeypoint(new paper.Point(0, 0), 0);
+          }
+        },
+        {
+          default: ["+"],
+          name: "Check skipKeypoint",
           function: this.$refs.keypoint.skipKeypoint
         },
         {

@@ -29,7 +29,7 @@ export default {
       this.$parent.currentAnnotation.addKeypoint(event.point);
     },
     skipKeypoint() {
-      this.$parent.currentAnnotation.skipKeypoint();
+      console.log("kazuum")
     }
   },
   computed: {
