@@ -26,10 +26,12 @@ export default {
       return {};
     },
     onMouseDown(event) {
+      console.log("MG onMouseDown00")
       this.$parent.currentAnnotation.addKeypoint(event.point);
     },
     skipKeypoint() {
-      console.log("kazuum")
+      this.$parent.currentAnnotation.skipKeypoint(new paper.Point(0, 0), 0);
+      console.log("MARTIN has pressed skipKeypoint")
     }
   },
   computed: {

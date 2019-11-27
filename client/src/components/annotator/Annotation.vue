@@ -476,7 +476,11 @@ export default {
       this.compoundPath.fullySelected = this.isCurrent;
     },
     addKeypoint(point, visibility, label) {
-      if (label == null && this.keypoints.contains(point)) return;
+      console.log("Annotation.vue/addKeypoint reached")
+      if (label == null && this.keypoints.contains(point)) {
+         console.log("this.keypoints.contains(point)")
+         return;
+      }
 
       visibility = visibility || parseInt(this.keypoint.next.visibility);
       label = label || parseInt(this.keypoint.next.label);
@@ -541,6 +545,14 @@ export default {
 
       this.tagRecomputeCounter++;
     },
+    skipKeypoint(point, visibility, label) {
+      console.log("Annotation.vue/skipKeypoint")
+      let keypoint = new Keypoint(0, 0, {
+              visibility: 0,
+              indexLabel: 0});
+      this.keypoints.skipKeypoint(keypoint);
+    },
+
     deleteKeypoint(keypoint) {
       this.keypoints.delete(keypoint);
     },

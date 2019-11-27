@@ -51,6 +51,7 @@ export class Keypoints extends paper.Group {
   }
 
   addKeypoint(keypoint) {
+    console.log("keypoints.js/addKeypoint")
     keypoint.keypoints = this;
     keypoint.path.keypoints = this;
     keypoint.color = this.strokeColor;
@@ -67,6 +68,11 @@ export class Keypoints extends paper.Group {
     this.addChild(keypoint.path);
     this._drawLines(keypoint);
     keypoint.path.bringToFront();
+  }
+    
+  skipKeypoint(keypoint) {
+    console.log("keypoints.js/skipKeypoint")
+    this._keypoints.push(keypoint);
   }
 
   deleteKeypoint(keypoint) {
