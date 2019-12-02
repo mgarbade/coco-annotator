@@ -35,6 +35,13 @@ export default {
       }
     };
   },
+  methods: {
+    setVisibility(v) {
+      this.visibility = v
+      // if (!this.currentAnnotation) return;
+      // this.currentAnnotation.keypoint.next.label = label;
+    },
+  },
   watch: {
     notUsedLabels(notUsedLabels) {
       if (!notUsedLabels) return;

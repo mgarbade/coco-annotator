@@ -189,6 +189,7 @@
             <KeypointPanel
               :keypoint="$refs.keypoint"
               :current-annotation="currentAnnotation"
+              ref="keypoint_panel"
             />
           </div>
           <div v-if="$refs.dextr != null">

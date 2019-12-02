@@ -155,11 +155,24 @@ export default {
           function: this.$refs.brush.increaseRadius
         },
         {
-          default: ["0"],
-          name: "Skip non visible keypoint",
+          default: ["1"],
+          name: "Set visibility to 0",
           function: () => {
-            console.log("Pressed 0: in shortcuts.js")
-            this.currentAnnotation.skipKeypoint(new paper.Point(0, 0), 0);
+            this.$refs.keypoint_panel.setVisibility(0)
+          }
+        },
+        {
+          default: ["2"],
+          name: "Set visibility to 1",
+          function: () => {
+            this.$refs.keypoint_panel.setVisibility(1)
+          }
+        },
+        {
+          default: ["3"],
+          name: "Set visibility to 2",
+          function: () => {
+            this.$refs.keypoint_panel.setVisibility(2)
           }
         },
         {
