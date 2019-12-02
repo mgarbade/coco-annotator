@@ -73,6 +73,7 @@ export default {
       this.$parent.currentAnnotation.unite(this.brush.path, false, false);
     },
     decreaseRadius() {
+      console.log("decreaseRadius")
       if (!this.isActive) return;
       this.brush.pathOptions.radius -= 2;
     },

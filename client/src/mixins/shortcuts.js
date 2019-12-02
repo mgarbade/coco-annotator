@@ -158,16 +158,16 @@ export default {
           default: ["0"],
           name: "Skip non visible keypoint",
           function: () => {
+            console.log("Pressed 0: in shortcuts.js")
             this.currentAnnotation.skipKeypoint(new paper.Point(0, 0), 0);
-            console.log("Martin pressed 0: in shortcuts.js")
           }
         },
         {
           default: ["+"],
           name: "Check skipKeypoint",
           function: () => {
-            this.$refs.keypoint.skipKeypoint
-            console.log("Martin pressed +: in shortcuts.js")
+            console.log("Pressed +: in shortcuts.js")
+            this.$refs.keypoint.visibility = 0  // This isn't working!
           }
         },
         {

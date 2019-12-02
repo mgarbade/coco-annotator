@@ -481,7 +481,7 @@ export default {
          console.log("this.keypoints.contains(point)")
          return;
       }
-
+      console.log("Annotation.vue/addKeypoint reached2")
       visibility = visibility || parseInt(this.keypoint.next.visibility);
       label = label || parseInt(this.keypoint.next.label);
 
@@ -539,18 +539,22 @@ export default {
           this.keypoints.moveKeypoint(event.point, keypoint);
         }
       });
-
+      console.log("Annotation.vue/addKeypoint reached3")
       this.keypoints.addKeypoint(keypoint);
       this.isEmpty = this.compoundPath.isEmpty() && this.keypoints.isEmpty();
 
       this.tagRecomputeCounter++;
+      console.log("Annotation.vue/addKeypoint reached4")
     },
     skipKeypoint(point, visibility, label) {
       console.log("Annotation.vue/skipKeypoint")
-      let keypoint = new Keypoint(0, 0, {
-              visibility: 0,
-              indexLabel: 0});
-      this.keypoints.skipKeypoint(keypoint);
+      // let keypoint = new Keypoint(0, 0, {
+      //         visibility: 0,
+      //         indexLabel: 0});
+      this.keypoints.skipKeypoint();
+      // this.isEmpty = this.compoundPath.isEmpty() && this.keypoints.isEmpty();
+      // this.tagRecomputeCounter++;
+      // this.keypoint.next.visibility = 0
     },
 
     deleteKeypoint(keypoint) {

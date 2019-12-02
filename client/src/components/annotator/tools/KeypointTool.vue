@@ -26,13 +26,9 @@ export default {
       return {};
     },
     onMouseDown(event) {
-      console.log("MG onMouseDown00")
+      console.log("KeypointTool.vue/onMouseDown")
       this.$parent.currentAnnotation.addKeypoint(event.point);
     },
-    skipKeypoint() {
-      this.$parent.currentAnnotation.skipKeypoint(new paper.Point(0, 0), 0);
-      console.log("MARTIN has pressed skipKeypoint")
-    }
   },
   computed: {
     isDisabled() {
