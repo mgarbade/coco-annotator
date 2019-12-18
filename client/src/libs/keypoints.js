@@ -70,11 +70,6 @@ export class Keypoints extends paper.Group {
     keypoint.path.bringToFront();
   }
     
-  skipKeypoint(keypoint) {
-    console.log("keypoints.js/skipKeypoint")
-    this._keypoints.push(keypoint);
-  }
-
   deleteKeypoint(keypoint) {
     let indexLabel = keypoint.indexLabel;
     if (this._labelled.hasOwnProperty(indexLabel)) {
@@ -317,6 +312,7 @@ export let VisibilityType = {
 };
 
 export class Keypoint extends paper.Point {
+
   constructor(x, y, args) {
     super(x, y);
     args = args || {};
@@ -333,14 +329,15 @@ export class Keypoint extends paper.Point {
     this.onDoubleClick = args.onDoubleClick;
     this.onMouseDrag = args.onMouseDrag;
 
-    this._draw();
     this.color = args.color || "red";
-    this.setFillColor();
+    console.log("this.setFillColor(" + this.indexLabel + ")")
+    this.setFillColor(this.indexLabel);
+    this._draw();
   }
 
-  setFillColor() {
+  setFillColor(indexLabel) {
     if (this.path == null) return;
-
+    console.log("setFillColor(" + indexLabel + ")")
     switch (this.visibility) {
       case VisibilityType.NOT_LABELED:
         this.path.fillColor = "black";
@@ -349,8 +346,64 @@ export class Keypoint extends paper.Point {
         this.path.fillColor = "white";
         break;
       default:
-        this.path.fillColor = this.color;
+          switch (indexLabel) {
+            case 1:
+              this.path.fillColor = '#ff0055'
+              break
+            case 2:
+                this.path.fillColor = '#ff0000'
+                break
+            case 3:
+                this.path.fillColor = '#ff5500'
+                break
+            case 4:
+                this.path.fillColor = '#ffaa00'
+                break
+            case 5:
+                this.path.fillColor = '#ffff00'
+                break
+            case 6:
+                this.path.fillColor = '#aaff00'
+                break
+            case 7:
+                this.path.fillColor = '#55ff00'
+                break
+            case 8:
+                this.path.fillColor = '#00ff00'
+                break
+            case 9:
+                this.path.fillColor = '#00ff55'
+                break
+            case 10:
+                this.path.fillColor = '#00ffaa'
+                break
+            case 11:
+                this.path.fillColor = '#00ffff'
+                break
+            case 12:
+                this.path.fillColor = '#0055ff'
+                break
+            case 13:
+                this.path.fillColor = '#0000ff'
+                break
+            case 14:
+                this.path.fillColor = '#ff00aa'
+                break
+            case 15:
+                this.path.fillColor = '#aa00ff'
+                break
+            case 16:
+                this.path.fillColor = '#ff00ff'
+                break
+            case 17:
+                this.path.fillColor = '#5500ff'
+                break
+            default:
+                this.path.fillColor = this.color;
+          }
+        
     }
+
   }
 
   move(point) {
@@ -381,7 +434,7 @@ export class Keypoint extends paper.Point {
     this.path.keypoint = this;
     this.path.keypoints = this.keypoints;
 
-    this.setFillColor();
+    this.setFillColor(this.indexLabel);
   }
 
   set visible(val) {
@@ -395,7 +448,7 @@ export class Keypoint extends paper.Point {
 
   set visibility(val) {
     this._visibility = val;
-    this.setFillColor();
+    this.setFillColor(this.indexLabel);
   }
 
   get visibility() {
@@ -414,7 +467,7 @@ export class Keypoint extends paper.Point {
   set color(val) {
     this._color = val;
     this.path.strokeColor = this.selected ? "white" : val;
-    this.setFillColor();
+    this.setFillColor(this.indexLabel);
   }
 
   get color() {

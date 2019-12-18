@@ -29,6 +29,9 @@ export default {
       console.log("KeypointTool.vue/onMouseDown")
       this.$parent.currentAnnotation.addKeypoint(event.point);
     },
+    setVisibilityToInvisible(){
+      this.keypoint.visibility
+    }
   },
   computed: {
     isDisabled() {
