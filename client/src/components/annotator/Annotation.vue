@@ -544,7 +544,7 @@ export default {
       this.isEmpty = this.compoundPath.isEmpty() && this.keypoints.isEmpty();
 
       this.tagRecomputeCounter++;
-      console.log("Annotation.vue/addKeypoint reached4")
+      // console.log("Annotation.vue/addKeypoint reached4")
     },
     skipKeypoint(point, visibility, label) {
       console.log("Annotation.vue/skipKeypoint")
