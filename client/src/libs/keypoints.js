@@ -346,10 +346,15 @@ export class Keypoint extends paper.Point {
         this.path.fillColor = "white";
         break;
       default:
+          if (indexLabel % 2 == 1){
+            this.path.strokeWidth = this.path.strokeWidth * 0.5
+          } else {
+            this.path.strokeWidth = this.path.strokeWidth * 1.5
+          }
           switch (indexLabel) {
             case 1:
-              this.path.fillColor = '#ff0055'
-              break
+                this.path.fillColor = '#ff0055'
+                break
             case 2:
                 this.path.fillColor = '#ff0000'
                 break
