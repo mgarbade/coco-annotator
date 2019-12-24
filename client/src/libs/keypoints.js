@@ -359,40 +359,40 @@ export class Keypoint extends paper.Point {
                 this.path.fillColor = '#ff0000'
                 break
             case 3:
-                this.path.fillColor = '#ff5500'
+                this.path.fillColor = '#ff0000'
                 break
             case 4:
                 this.path.fillColor = '#ffaa00'
                 break
             case 5:
-                this.path.fillColor = '#ffff00'
+                this.path.fillColor = '#ffaa00'
                 break
             case 6:
-                this.path.fillColor = '#aaff00'
+                this.path.fillColor = '#ffff00'
                 break
             case 7:
-                this.path.fillColor = '#55ff00'
+                this.path.fillColor = '#ffff00'
                 break
             case 8:
                 this.path.fillColor = '#00ff00'
                 break
             case 9:
-                this.path.fillColor = '#00ff55'
+                this.path.fillColor = '#00ff00'
                 break
             case 10:
-                this.path.fillColor = '#00ffaa'
+                this.path.fillColor = '#00ffff'
                 break
             case 11:
                 this.path.fillColor = '#00ffff'
                 break
             case 12:
-                this.path.fillColor = '#0055ff'
+                this.path.fillColor = '#0000ff'
                 break
             case 13:
                 this.path.fillColor = '#0000ff'
                 break
             case 14:
-                this.path.fillColor = '#ff00aa'
+                this.path.fillColor = '#aa00ff'
                 break
             case 15:
                 this.path.fillColor = '#aa00ff'
@@ -401,7 +401,7 @@ export class Keypoint extends paper.Point {
                 this.path.fillColor = '#ff00ff'
                 break
             case 17:
-                this.path.fillColor = '#5500ff'
+                this.path.fillColor = '#ff00ff'
                 break
             default:
                 this.path.fillColor = this.color;
