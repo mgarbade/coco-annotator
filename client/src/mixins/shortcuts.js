@@ -172,7 +172,16 @@ export default {
           default: ["shift", "click"],
           name: "Subtract Selection",
           readonly: true
-        }
+        },
+        {
+          default: ["+"],
+          name: "Skip non visible keypoint",
+          function: () => {
+            if (this.currentAnnotation) {
+              this.currentAnnotation.addKeypoint(new paper.Point( 0 - this.image.raster.width / 2, 0 - this.image.raster.height / 2), 0);
+            }
+          }
+        }	      
       ];
     }
   },

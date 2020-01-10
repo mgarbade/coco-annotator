@@ -554,9 +554,11 @@ export default {
       this.compoundPath.fullySelected = this.isCurrent;
     },
     addKeypoint(point, visibility, label) {
-      if (label == null && this.keypoints.contains(point)) return;
+      if (label == null && this.keypoints.contains(point) && visibility != 0) return;
+      if (visibility != 0){
+        visibility = visibility || parseInt(this.keypoint.next.visibility);
+      }
 
-      visibility = visibility || parseInt(this.keypoint.next.visibility);
       label = label || parseInt(this.keypoint.next.label);
 
       let keypoint = new Keypoint(point.x, point.y, {

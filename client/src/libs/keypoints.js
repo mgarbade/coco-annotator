@@ -266,7 +266,7 @@ export class Keypoints extends paper.Group {
   _drawLine(edge, firstKeypoint, secondKeypoint) {
     let h = this._hashEdge(edge);
     if (this._lines[h]) return;
-
+    if (firstKeypoint.visibility == 0 || secondKeypoint.visibility == 0 ) return;
     let line = new paper.Path.Line(firstKeypoint, secondKeypoint);
     line.strokeColor = this.strokeColor;
     line.strokeWidth = this.lineWidth;
@@ -450,7 +450,8 @@ export class Keypoint extends paper.Point {
 
     switch (this.visibility) {
       case VisibilityType.NOT_LABELED:
-        this.path.fillColor = "black";
+        this.path.fillColor = "black"; // TODO: Obsolete, since keypoint is invisible (not sure if needed elsewhere)
+	this.path.visible = false; 
         break;
       case VisibilityType.LABELED_NOT_VISIBLE:
         this.path.fillColor = "white";
